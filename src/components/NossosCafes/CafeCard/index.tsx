@@ -12,7 +12,7 @@ import { Tipo } from '../styles';
 import ButtonCartHome from '../../../assets/ButtonCartHome.svg';
 import PrevIcon from '../../../assets/PrevIcon.svg';
 import NextIcon from '../../../assets/NextIcon.svg';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CoffeContext } from '../../../contexts/CoffeContext';
 
 export default function CafeCard({
@@ -25,12 +25,34 @@ export default function CafeCard({
 }: CoffeType) {
   const baseUrl = window.location.origin;
 
-  const { addNewCoffeContext } = useContext(CoffeContext);
+  const { addNewCoffeContext, removeNewCoffeContext } =
+    useContext(CoffeContext);
 
+  const [numberCoffeCard, setNumberCoffeCard] = useState(0);
   const handleAddNewCoffe = () => {
-    addNewCoffeContext({ id, descricao, imagem, nome, preco, tipo });
+    addNewCoffeContext({
+      id,
+      descricao,
+      imagem,
+      nome,
+      preco,
+      tipo,
+      data: new Date().toISOString(),
+    });
+    setNumberCoffeCard((state) => state + 1);
   };
-
+  const handleRemoveNewCoffe = () => {
+    removeNewCoffeContext({
+      id,
+      descricao,
+      imagem,
+      nome,
+      preco,
+      tipo,
+      data: new Date().toISOString(),
+    });
+    setNumberCoffeCard((state) => (state > 0 ? state - 1 : state));
+  };
   return (
     <CafeCardContainer>
       <img src={`${baseUrl}/src/assets/cafe/${imagem}`} alt="" />
@@ -48,9 +70,9 @@ export default function CafeCard({
         <div>
           <InputNumberCafe>
             <AddOrRemove>
-              <img src={PrevIcon} alt="" />
+              <img src={PrevIcon} onClick={handleRemoveNewCoffe} alt="" />
             </AddOrRemove>
-            <span>{0}</span>
+            <span>{numberCoffeCard}</span>
             <AddOrRemove>
               <img src={NextIcon} onClick={handleAddNewCoffe} alt="" />
             </AddOrRemove>

@@ -5,4 +5,5 @@ export interface CoffeType {
   descricao: string;
   preco: string;
   imagem: string;
+  data: string;
 }

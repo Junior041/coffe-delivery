@@ -13,7 +13,7 @@ export function addNewCoffe(coffe: CoffeType) {
 
 export function removeCoffe(coffe: CoffeType) {
   return {
-    type: ActionTypes.ADD_NEW_COFFE,
-    playload: { id: coffe.id },
+    type: ActionTypes.REMOVE_COFFE,
+    playload: { coffe },
   };
 }

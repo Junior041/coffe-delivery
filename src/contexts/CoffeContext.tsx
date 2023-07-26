@@ -1,9 +1,11 @@
 import { createContext, ReactNode, useReducer } from 'react';
 import { CoffesReducer } from '../reducers/reducer';
 import { CoffeType } from '../@types/coffe';
-import { addNewCoffe } from '../reducers/actions';
+import { addNewCoffe, removeCoffe } from '../reducers/actions';
 interface CoffesContextType {
+  numberCoffe: number;
   addNewCoffeContext: (coffe: CoffeType) => void;
+  removeNewCoffeContext: (coffe: CoffeType) => void;
 }
 
 interface CoffeContextProviderProps {
@@ -16,7 +18,8 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
   const [coffeState, dispatch] = useReducer(
     CoffesReducer,
     {
-      coffes: [], // Estado inicial definido corretamente como um objeto com a propriedade 'coffes'
+      coffes: [],
+      numberCoffe: 0,
     },
     (initialState) => {
       return initialState;
@@ -27,8 +30,16 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
     dispatch(addNewCoffe(coffe));
   }
 
+  function removeNewCoffeContext(coffe: CoffeType) {
+    dispatch(removeCoffe(coffe));
+  }
+
+  const { numberCoffe } = coffeState;
+
   return (
-    <CoffeContext.Provider value={{ addNewCoffeContext }}>
+    <CoffeContext.Provider
+      value={{ numberCoffe, addNewCoffeContext, removeNewCoffeContext }}
+    >
       {children}
     </CoffeContext.Provider>
   );

@@ -33,4 +33,16 @@ export const Cart = styled.div`
   border-radius: 6px;
   background-color: ${(props) => props.theme['yellow-100']};
   color: ${(props) => props.theme['yellow-500']};
+  position: relative;
+  > span {
+    color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme['yellow-500']};
+    border-radius: 9999px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    position: absolute;
+    right: -8.345px;
+    top: -8px;
+  }
 `;
