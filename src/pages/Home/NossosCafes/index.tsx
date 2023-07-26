@@ -1,6 +1,6 @@
 import CafeCard from './CafeCard';
 import { CafesContainer, NossosCafesContainer } from './styles';
-import { CafesJSON } from '../../cafes';
+import { CafesJSON } from '../../../cafes';
 
 export default function NossosCafes() {
   return (

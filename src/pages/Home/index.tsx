@@ -1,4 +1,4 @@
-import Banner from '../../components/Banner';
+import Banner from './Banner';
 import NossosCafes from '../../components/NossosCafes';
 
 export function Home() {
