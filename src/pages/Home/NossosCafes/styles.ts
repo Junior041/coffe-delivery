@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const NossosCafesContainer = styled.div`
-  width: 61vw;
-  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 54px;

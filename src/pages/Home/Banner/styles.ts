@@ -17,8 +17,6 @@ export const BannerBackground = styled.div<BannerContainerProps>`
 `;
 
 export const BannerContainer = styled.div`
-  width: 61vw;
-  margin: auto;
   display: flex;
   padding: 5.75rem 0;
   position: relative;

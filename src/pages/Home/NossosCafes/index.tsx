@@ -16,6 +16,7 @@ export default function NossosCafes() {
               tipo={cafe.tipo}
               preco={cafe.preco}
               id={cafe.id}
+              data={new Date().toISOString()}
               key={cafe.id}
             />
           );
