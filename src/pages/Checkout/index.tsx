@@ -1,9 +1,12 @@
-import { CheckoutContainer } from './styles';
+import Endereco from './Endereco';
+import { CheckoutContainer, ParteEsquerda } from './styles';
 
 export default function Checkout() {
   return (
     <CheckoutContainer>
-      <h1>Checkout</h1>
+      <ParteEsquerda>
+        <Endereco />
+      </ParteEsquerda>
     </CheckoutContainer>
   );
 }
