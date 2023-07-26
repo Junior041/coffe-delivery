@@ -7,3 +7,9 @@ export interface CoffeType {
   imagem: string;
   data: string;
 }
+
+export interface CoffesSelected {
+  id: number;
+  date: string;
+  count: number;
+}

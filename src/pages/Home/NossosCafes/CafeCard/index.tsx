@@ -25,10 +25,13 @@ export default function CafeCard({
 }: CoffeType) {
   const baseUrl = window.location.origin;
 
-  const { addNewCoffeContext, removeNewCoffeContext } =
+  const { coffes, addNewCoffeContext, removeNewCoffeContext } =
     useContext(CoffeContext);
 
-  const [numberCoffeCard, setNumberCoffeCard] = useState(0);
+  const coffesSelectedCount = coffes.filter((coffe) => coffe.id === id);
+  const [numberCoffeCard, setNumberCoffeCard] = useState(
+    coffesSelectedCount.length,
+  );
   const handleAddNewCoffe = () => {
     addNewCoffeContext({
       id,

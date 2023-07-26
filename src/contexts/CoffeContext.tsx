@@ -3,6 +3,7 @@ import { CoffesReducer } from '../reducers/reducer';
 import { CoffeType } from '../@types/coffe';
 import { addNewCoffe, removeCoffe } from '../reducers/actions';
 interface CoffesContextType {
+  coffes: CoffeType[];
   numberCoffe: number;
   addNewCoffeContext: (coffe: CoffeType) => void;
   removeNewCoffeContext: (coffe: CoffeType) => void;
@@ -34,11 +35,11 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
     dispatch(removeCoffe(coffe));
   }
 
-  const { numberCoffe } = coffeState;
+  const { numberCoffe, coffes } = coffeState;
 
   return (
     <CoffeContext.Provider
-      value={{ numberCoffe, addNewCoffeContext, removeNewCoffeContext }}
+      value={{ coffes, numberCoffe, addNewCoffeContext, removeNewCoffeContext }}
     >
       {children}
     </CoffeContext.Provider>
