@@ -4,12 +4,12 @@ import {
   BannerDescriptions,
   BannerDescriptionsInformations,
 } from './styles';
-import BackgroundBanner from '../../assets/BackgroundBanner.svg';
-import ShoppingCart from '../../assets/shoppingCart.svg';
-import Timer from '../../assets/timer.svg';
-import Embalagem from '../../assets/embalagem.svg';
-import Coffe from '../../assets/coffe.svg';
-import CoffeBanner from '../../assets/coffeBanner.png';
+import BackgroundBanner from '../../../assets/BackgroundBanner.svg';
+import ShoppingCart from '../../../assets/shoppingCart.svg';
+import Timer from '../../../assets/timer.svg';
+import Embalagem from '../../../assets/embalagem.svg';
+import Coffe from '../../../assets/coffe.svg';
+import CoffeBanner from '../../../assets/coffeBanner.png';
 
 export default function Banner() {
   return (

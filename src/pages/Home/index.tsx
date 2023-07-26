@@ -1,5 +1,5 @@
 import Banner from './Banner';
-import NossosCafes from '../../components/NossosCafes';
+import NossosCafes from './NossosCafes';
 
 export function Home() {
   return (

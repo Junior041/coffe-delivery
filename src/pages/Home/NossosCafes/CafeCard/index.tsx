@@ -7,13 +7,13 @@ import {
   InputNumberCafe,
   PrecoCoffe,
 } from './styles';
-import { CoffeType } from '../../../@types/coffe';
+import { CoffeType } from '../../../../@types/coffe';
 import { Tipo } from '../styles';
-import ButtonCartHome from '../../../assets/ButtonCartHome.svg';
-import PrevIcon from '../../../assets/PrevIcon.svg';
-import NextIcon from '../../../assets/NextIcon.svg';
+import ButtonCartHome from '../../../../assets/ButtonCartHome.svg';
+import PrevIcon from '../../../../assets/PrevIcon.svg';
+import NextIcon from '../../../../assets/NextIcon.svg';
 import { useContext, useState } from 'react';
-import { CoffeContext } from '../../../contexts/CoffeContext';
+import { CoffeContext } from '../../../../contexts/CoffeContext';
 
 export default function CafeCard({
   descricao,
