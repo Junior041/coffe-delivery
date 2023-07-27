@@ -1,24 +1,16 @@
 import { EnderecoContainer, FormEndereco, TitleEndereco } from './styles';
 import MapIcon from '../../../assets/mapIcon.svg';
-import NewEnderecoForm from './NewEnderecoForm';
-import { FormProvider, useForm } from 'react-hook-form';
-import * as zod from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useFormContext } from 'react-hook-form';
 
-const newEnderecoFormSchema = zod.object({
-  cep: zod.number(),
-  rua: zod.string(),
-  numero: zod.number(),
-  complemento: zod.string(),
-  bairro: zod.string(),
-  cidade: zod.string(),
-  uf: zod.string(),
-});
-type NewEnderecoFormData = zod.infer<typeof newEnderecoFormSchema>;
+import NewEnderecoForm from './NewEnderecoForm';
+
 export default function Endereco() {
-  const newEnderecoForm = useForm<NewEnderecoFormData>({
-    resolver: zodResolver(newEnderecoFormSchema),
-  });
+  const { handleSubmit } = useFormContext();
+
+  function handleCreatePayment(data: any) {
+    console.log(data);
+  }
+
   return (
     <EnderecoContainer>
       <div>
@@ -30,10 +22,11 @@ export default function Endereco() {
           </div>
         </TitleEndereco>
       </div>
-      <FormEndereco>
-        <FormProvider {...newEnderecoForm}>
-          <NewEnderecoForm />
-        </FormProvider>
+      <FormEndereco
+        onSubmit={handleSubmit(handleCreatePayment, handleCreatePayment)}
+      >
+        <NewEnderecoForm />
+        <button type="submit">Enviar</button>
       </FormEndereco>
     </EnderecoContainer>
   );

@@ -13,21 +13,38 @@ export default function NewEnderecoForm() {
   const { register } = useFormContext();
   return (
     <>
-      <CepInput {...register('cep')} id="cep" placeholder="CEP" />
-      <RuaInput {...register('rua')} id="rua" placeholder="Rua" />
+      <CepInput
+        {...register('cep', { valueAsNumber: true })}
+        id="cep"
+        placeholder="CEP"
+        required
+      />
+      <RuaInput {...register('rua')} id="rua" placeholder="Rua" required />
       <NumeroInput
         {...register('numero', { valueAsNumber: true })}
         id="numero"
         placeholder="Numero"
+        required
       />
       <ComplementoInput
         {...register('complemento')}
         id="complemento"
         placeholder="Complemento"
+        required
       />
-      <BairroInput {...register('bairro')} id="bairro" placeholder="Bairro" />
-      <CidadeInput {...register('cidade')} id="cidade" placeholder="Cidade" />
-      <UfInput {...register('uf')} id="uf" placeholder="UF" />
+      <BairroInput
+        {...register('bairro')}
+        id="bairro"
+        placeholder="Bairro"
+        required
+      />
+      <CidadeInput
+        {...register('cidade')}
+        id="cidade"
+        placeholder="Cidade"
+        required
+      />
+      <UfInput {...register('uf')} id="uf" placeholder="UF" required />
     </>
   );
 }

@@ -26,7 +26,7 @@ export const TitleEndereco = styled.div`
   }
 `;
 
-export const FormEndereco = styled.div`
+export const FormEndereco = styled.form`
   display: flex;
   flex-wrap: wrap;
   gap: 16px 12px;
