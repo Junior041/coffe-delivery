@@ -9,11 +9,7 @@ import { CoffeContext } from '../../../contexts/CoffeContext';
 import { CoffeType } from '../../../@types/coffe';
 import TotalItems from './TotalItems';
 
-export default function CafesSelecionados({
-  createPayment,
-}: {
-  createPayment: (data: any) => void;
-}) {
+export default function CafesSelecionados() {
   const { coffes } = useContext(CoffeContext);
   const uniqueArray = coffes.reduce(
     (acc: CoffeType[], currentItem: CoffeType) => {
