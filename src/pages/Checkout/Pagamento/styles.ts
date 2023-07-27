@@ -43,6 +43,11 @@ export const ButtonPaymant = styled.div`
   border-radius: 6px;
   width: 32%;
   gap: 12px;
+  cursor: pointer;
+  &.ativo {
+    background-color: ${(props) => props.theme['purple-100']};
+    border: 1px solid ${(props) => props.theme['purple-400']};
+  }
   > span {
     font-family: 'Roboto', 'sans-serif';
     font-size: 12px;

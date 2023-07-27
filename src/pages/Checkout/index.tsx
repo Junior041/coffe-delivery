@@ -5,6 +5,7 @@ import { CheckoutContainer, ParteEsquerda, PartedDireita } from './styles';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as zod from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 
 const newEnderecoFormSchema = zod.object({
   cep: zod.number(),
@@ -18,16 +19,24 @@ const newEnderecoFormSchema = zod.object({
 type NewEnderecoFormData = zod.infer<typeof newEnderecoFormSchema>;
 
 export default function Checkout() {
+  const [paymentMethod, setPaymentMethod] = useState('credito');
   const newEnderecoForm = useForm<NewEnderecoFormData>({
     resolver: zodResolver(newEnderecoFormSchema),
   });
+  function createPayment(data: any) {
+    data.methodPaymant = paymentMethod;
+    console.log(data);
+  }
   return (
     <FormProvider {...newEnderecoForm}>
       <CheckoutContainer>
         <ParteEsquerda>
           <p>Complete seu pedido</p>
-          <Endereco />
-          <Pagemento />
+          <Endereco createPayment={createPayment} />
+          <Pagemento
+            setPaymentMethod={setPaymentMethod}
+            paymentMethod={paymentMethod}
+          />
         </ParteEsquerda>
         <PartedDireita>
           <p>Cafés Selecionados</p>

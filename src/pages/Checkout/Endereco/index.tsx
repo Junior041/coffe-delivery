@@ -4,11 +4,15 @@ import { useFormContext } from 'react-hook-form';
 
 import NewEnderecoForm from './NewEnderecoForm';
 
-export default function Endereco() {
+export default function Endereco({
+  createPayment,
+}: {
+  createPayment: (data: any) => void;
+}) {
   const { handleSubmit } = useFormContext();
 
   function handleCreatePayment(data: any) {
-    console.log(data);
+    createPayment(data);
   }
 
   return (
