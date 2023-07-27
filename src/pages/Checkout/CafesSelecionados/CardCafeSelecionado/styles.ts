@@ -52,8 +52,8 @@ export const RemoveAllCoffesIndex = styled.div`
 
 export const PriceTotal = styled.div`
   color: ${(props) => props.theme['gray-700']};
-  font-family: 'Baloo 2';
-  font-size: 1.5rem;
+  font-family: 'roboto';
+  font-size: 1rem;
   font-style: normal;
   font-weight: 800;
   line-height: 130%;

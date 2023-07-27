@@ -26,9 +26,7 @@ export default function Endereco({
           </div>
         </TitleEndereco>
       </div>
-      <FormEndereco
-        onSubmit={handleSubmit(handleCreatePayment, handleCreatePayment)}
-      >
+      <FormEndereco onSubmit={handleSubmit(handleCreatePayment)}>
         <NewEnderecoForm />
         <button type="submit">Enviar</button>
       </FormEndereco>

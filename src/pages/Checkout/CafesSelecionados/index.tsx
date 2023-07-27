@@ -3,12 +3,17 @@ import CardCafeSelecionado from './CardCafeSelecionado';
 import {
   CafesSelecionadosContainer,
   CafeCardCheckoutContainer,
+  BotaoEnviarContainer,
 } from './styles';
 import { CoffeContext } from '../../../contexts/CoffeContext';
 import { CoffeType } from '../../../@types/coffe';
 import TotalItems from './TotalItems';
 
-export default function CafesSelecionados() {
+export default function CafesSelecionados({
+  createPayment,
+}: {
+  createPayment: (data: any) => void;
+}) {
   const { coffes } = useContext(CoffeContext);
   const uniqueArray = coffes.reduce(
     (acc: CoffeType[], currentItem: CoffeType) => {
@@ -39,6 +44,7 @@ export default function CafesSelecionados() {
           );
         })}
         <TotalItems />
+        <BotaoEnviarContainer>CONFIRMAR PEDIDO</BotaoEnviarContainer>
       </CafesSelecionadosContainer>
     </CafeCardCheckoutContainer>
   );

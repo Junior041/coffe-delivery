@@ -23,3 +23,23 @@ export const CafesSelecionadosContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const BotaoEnviarContainer = styled.button`
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%; /* 22.4px */
+  text-transform: uppercase;
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme['yellow-300']};
+  border: transparent;
+  border-radius: 6px;
+  padding: 12px 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: ${(props) => props.theme['yellow-500']};
+  }
+`;
