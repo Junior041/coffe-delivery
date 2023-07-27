@@ -1,12 +1,17 @@
 import { createContext, ReactNode, useEffect, useReducer } from 'react';
 import { CoffesReducer } from '../reducers/reducer';
 import { CoffeType } from '../@types/coffe';
-import { addNewCoffe, removeCoffe } from '../reducers/actions';
+import {
+  addNewCoffe,
+  removeAllCoffeEqual,
+  removeCoffe,
+} from '../reducers/actions';
 interface CoffesContextType {
   coffes: CoffeType[];
   numberCoffe: number;
   addNewCoffeContext: (coffe: CoffeType) => void;
   removeNewCoffeContext: (coffe: CoffeType) => void;
+  removeCoffesEqualContext: (coffe: CoffeType) => void;
 }
 
 interface CoffeContextProviderProps {
@@ -47,11 +52,21 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
     dispatch(removeCoffe(coffe));
   }
 
+  function removeCoffesEqualContext(coffe: CoffeType) {
+    dispatch(removeAllCoffeEqual(coffe));
+  }
+
   const { numberCoffe, coffes } = coffeState;
 
   return (
     <CoffeContext.Provider
-      value={{ coffes, numberCoffe, addNewCoffeContext, removeNewCoffeContext }}
+      value={{
+        coffes,
+        numberCoffe,
+        addNewCoffeContext,
+        removeNewCoffeContext,
+        removeCoffesEqualContext,
+      }}
     >
       {children}
     </CoffeContext.Provider>

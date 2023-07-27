@@ -1,7 +1,9 @@
 import { useContext } from 'react';
-import { CafeCardContainer } from '../../Home/NossosCafes/CafeCard/styles';
 import CardCafeSelecionado from './CardCafeSelecionado';
-import { CafesSelecionadosContainer } from './styles';
+import {
+  CafesSelecionadosContainer,
+  CafeCardCheckoutContainer,
+} from './styles';
 import { CoffeContext } from '../../../contexts/CoffeContext';
 import { CoffeType } from '../../../@types/coffe';
 
@@ -19,7 +21,7 @@ export default function CafesSelecionados() {
   );
 
   return (
-    <CafeCardContainer>
+    <CafeCardCheckoutContainer>
       <CafesSelecionadosContainer>
         {uniqueArray.map((coffe) => {
           return (
@@ -36,6 +38,6 @@ export default function CafesSelecionados() {
           );
         })}
       </CafesSelecionadosContainer>
-    </CafeCardContainer>
+    </CafeCardCheckoutContainer>
   );
 }

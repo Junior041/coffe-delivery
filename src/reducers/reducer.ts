@@ -34,6 +34,16 @@ export function CoffesReducer(
           coffeRemoveIndex !== -1 ? state.numberCoffe - 1 : state.numberCoffe,
       };
     }
+    case ActionTypes.REMOVE_ALL_COFFE_EQUAL: {
+      const arrayCoffes = state.coffes.filter(
+        (coffe) => coffe.id !== action.playload.coffe.id,
+      );
+      return {
+        ...state,
+        coffes: arrayCoffes,
+        numberCoffe: arrayCoffes.length,
+      };
+    }
     default:
       return state;
   }
