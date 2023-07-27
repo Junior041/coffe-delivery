@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useReducer } from 'react';
+import { createContext, ReactNode, useEffect, useReducer } from 'react';
 import { CoffesReducer } from '../reducers/reducer';
 import { CoffeType } from '../@types/coffe';
 import { addNewCoffe, removeCoffe } from '../reducers/actions';
@@ -23,9 +23,21 @@ export function CoffeContextProvider({ children }: CoffeContextProviderProps) {
       numberCoffe: 0,
     },
     (initialState) => {
+      const storedStateAsJson = localStorage.getItem(
+        '@ignite-timer:coffe-state-1.0.0',
+      );
+      if (storedStateAsJson) {
+        return JSON.parse(storedStateAsJson);
+      }
+
       return initialState;
     },
   );
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(coffeState);
+    localStorage.setItem('@ignite-timer:coffe-state-1.0.0', stateJSON);
+  }, [coffeState]);
 
   function addNewCoffeContext(coffe: CoffeType) {
     dispatch(addNewCoffe(coffe));

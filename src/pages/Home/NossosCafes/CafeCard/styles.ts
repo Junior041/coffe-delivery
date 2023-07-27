@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const CafeCardContainer = styled.div`
   display: flex;
   background-color: ${(props) => props.theme['gray-300']};
-  border-radius: 6px;
   flex-direction: column;
   max-width: 256px;
   border-radius: 6px 36px;

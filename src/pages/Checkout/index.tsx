@@ -1,4 +1,4 @@
-import CafesSeecionados from './CafesSelecionadios';
+import CafesSelecionados from './CafesSelecionados';
 import Endereco from './Endereco';
 import Pagemento from './Pagamento';
 import { CheckoutContainer, ParteEsquerda, PartedDireita } from './styles';
@@ -13,7 +13,7 @@ export default function Checkout() {
       </ParteEsquerda>
       <PartedDireita>
         <p>Cafés Selecionados</p>
-        <CafesSeecionados />
+        <CafesSelecionados />
       </PartedDireita>
     </CheckoutContainer>
   );
