@@ -1,6 +1,7 @@
 import CafesSelecionados from './CafesSelecionados';
 import Endereco from './Endereco';
 import Pagemento from './Pagamento';
+import TotalItems from './CafesSelecionados/TotalItems';
 import { CheckoutContainer, ParteEsquerda, PartedDireita } from './styles';
 
 export default function Checkout() {

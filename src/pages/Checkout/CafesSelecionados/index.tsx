@@ -6,6 +6,7 @@ import {
 } from './styles';
 import { CoffeContext } from '../../../contexts/CoffeContext';
 import { CoffeType } from '../../../@types/coffe';
+import TotalItems from './TotalItems';
 
 export default function CafesSelecionados() {
   const { coffes } = useContext(CoffeContext);
@@ -37,6 +38,7 @@ export default function CafesSelecionados() {
             />
           );
         })}
+        <TotalItems />
       </CafesSelecionadosContainer>
     </CafeCardCheckoutContainer>
   );
