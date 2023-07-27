@@ -2,7 +2,7 @@ import { EnderecoContainer, FormEndereco, TitleEndereco } from './styles';
 import MapIcon from '../../../assets/mapIcon.svg';
 import { useFormContext } from 'react-hook-form';
 
-import NewEnderecoForm from './NewEnderecoForm';
+import NewEnderecoForm from '../NewEnderecoForm';
 
 export default function Endereco({
   createPayment,
