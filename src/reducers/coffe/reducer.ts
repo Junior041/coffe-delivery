@@ -1,4 +1,4 @@
-import { CoffeType } from '../@types/coffe';
+import { CoffeType } from '../../@types/coffe';
 import { ActionTypes } from './actions';
 interface CoffesReducer {
   coffes: CoffeType[];

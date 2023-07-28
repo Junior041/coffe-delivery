@@ -1,4 +1,4 @@
-import { CoffeType } from '../@types/coffe';
+import { CoffeType } from '../../@types/coffe';
 export enum ActionTypes {
   ADD_NEW_COFFE = 'ADD_NEW_COFFE',
   REMOVE_COFFE = 'REMOVE_COFFE',

@@ -10,7 +10,8 @@ import {
 } from 'react-hook-form';
 import * as zod from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { PaymentContext } from '../../contexts/PaymentContext';
 
 const newEnderecoFormSchema = zod.object({
   cep: zod.number(),
@@ -33,7 +34,11 @@ export default function Checkout() {
 
   const onSubmit: SubmitHandler<DeepPartial<CheckoutFormData>> = (data) => {
     data.methodPayment = paymentMethod;
+    addNewPaymentContext(data);
   };
+
+  const { payment, addNewPaymentContext } = useContext(PaymentContext);
+
   return (
     <FormProvider {...newEnderecoForm}>
       <CheckoutContainer onSubmit={newEnderecoForm.handleSubmit(onSubmit)}>

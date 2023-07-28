@@ -1,11 +1,11 @@
 import { createContext, ReactNode, useEffect, useReducer } from 'react';
-import { CoffesReducer } from '../reducers/reducer';
+import { CoffesReducer } from '../reducers/coffe/reducer';
 import { CoffeType } from '../@types/coffe';
 import {
   addNewCoffe,
   removeAllCoffeEqual,
   removeCoffe,
-} from '../reducers/actions';
+} from '../reducers/coffe/actions';
 interface CoffesContextType {
   coffes: CoffeType[];
   numberCoffe: number;
