@@ -8,10 +8,10 @@ import {
   PriceTotal,
   RemoveAllCoffesIndex,
 } from './styles';
-import PrevIcon from '../../../../assets/PrevIcon.svg';
-import NextIcon from '../../../../assets/NextIcon.svg';
-import { CoffeContext } from '../../../../contexts/CoffeContext';
-import { CoffeType } from '../../../../@types/coffe';
+import PrevIcon from '../../../assets/PrevIcon.svg';
+import NextIcon from '../../../assets/NextIcon.svg';
+import { CoffeContext } from '../../../contexts/CoffeContext';
+import { CoffeType } from '../../../@types/coffe';
 import { Trash } from 'phosphor-react';
 
 export default function CardCafeSelecionado({

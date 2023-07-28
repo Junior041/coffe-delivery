@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { TotalItemsContainer } from './styles';
-import { CoffeContext } from '../../../../contexts/CoffeContext';
+import { CoffeContext } from '../../../contexts/CoffeContext';
 
 export default function TotalItems() {
   const { coffes } = useContext(CoffeContext);

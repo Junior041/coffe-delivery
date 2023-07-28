@@ -6,7 +6,6 @@ import {
 } from './styles';
 import MoneyIcon from '../../../assets/moneyIcon.svg';
 import { Cardholder, Cards, Money } from 'phosphor-react';
-import { useState } from 'react';
 
 export default function Pagemento({
   setPaymentMethod,
