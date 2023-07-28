@@ -16,7 +16,6 @@ export function PaymentReducer(
 ) {
   switch (action.type) {
     case ActionTypes.CREATE_NET_PAYMENT: {
-      console.log(state);
       return {
         ...state,
         payment: action.playload.payment,
