@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useReducer } from 'react';
+import { ReactNode, createContext, useEffect, useReducer } from 'react';
 import { PaymentsType } from '../@types/payments';
 import { PaymentReducer } from '../reducers/payment/reducer';
 import { addNewPayment } from '../reducers/payment/actions';
@@ -18,9 +18,21 @@ export function PaymentContextProvider({ children }: PaymentContextProps) {
     PaymentReducer,
     { payment: {} },
     (initialState) => {
+      const storedStateAsJson = localStorage.getItem(
+        '@ignite-timer:payment-state-1.0.0',
+      );
+      if (storedStateAsJson) {
+        return JSON.parse(storedStateAsJson);
+      }
+
       return initialState;
     },
   );
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(paymentState);
+    localStorage.setItem('@ignite-timer:payment-state-1.0.0', stateJSON);
+  }, [paymentState]);
 
   function addNewPaymentContext(payment: PaymentsType[]) {
     console.log(payment);

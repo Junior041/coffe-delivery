@@ -36,7 +36,7 @@ export default function Checkout() {
   const onSubmit: SubmitHandler<DeepPartial<CheckoutFormData>> = (data) => {
     data.methodPayment = paymentMethod;
     addNewPaymentContext(data);
-    // window.location.href = '/obrigado';
+    window.location.href = '/obrigado';
   };
 
   return (
