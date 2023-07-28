@@ -2,7 +2,12 @@ import CafesSelecionados from './CafesSelecionados';
 import Endereco from './Endereco';
 import Pagemento from './Pagamento';
 import { CheckoutContainer, ParteEsquerda, PartedDireita } from './styles';
-import { FormProvider, useForm } from 'react-hook-form';
+import {
+  FormProvider,
+  useForm,
+  SubmitHandler,
+  DeepPartial,
+} from 'react-hook-form';
 import * as zod from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
@@ -15,24 +20,26 @@ const newEnderecoFormSchema = zod.object({
   bairro: zod.string(),
   cidade: zod.string(),
   uf: zod.string(),
+  methodPayment: zod.string().optional(),
 });
 type NewEnderecoFormData = zod.infer<typeof newEnderecoFormSchema>;
+type CheckoutFormData = NewEnderecoFormData; // Pode ser igual ao NewEnderecoFormData
 
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState('credito');
   const newEnderecoForm = useForm<NewEnderecoFormData>({
     resolver: zodResolver(newEnderecoFormSchema),
   });
-  function createPayment(data: any) {
-    data.methodPaymant = paymentMethod;
-    console.log(data);
-  }
+
+  const onSubmit: SubmitHandler<DeepPartial<CheckoutFormData>> = (data) => {
+    data.methodPayment = paymentMethod;
+  };
   return (
     <FormProvider {...newEnderecoForm}>
-      <CheckoutContainer>
+      <CheckoutContainer onSubmit={newEnderecoForm.handleSubmit(onSubmit)}>
         <ParteEsquerda>
           <p>Complete seu pedido</p>
-          <Endereco createPayment={createPayment} />
+          <Endereco />
           <Pagemento
             setPaymentMethod={setPaymentMethod}
             paymentMethod={paymentMethod}

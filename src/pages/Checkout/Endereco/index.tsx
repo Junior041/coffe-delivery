@@ -1,19 +1,21 @@
-import { EnderecoContainer, FormEndereco, TitleEndereco } from './styles';
+import {
+  EnderecoContainer,
+  FormEndereco,
+  TitleEndereco,
+  BairroInput,
+  CepInput,
+  CidadeInput,
+  ComplementoInput,
+  NumeroInput,
+  RuaInput,
+  UfInput,
+} from './styles';
 import MapIcon from '../../../assets/mapIcon.svg';
+
 import { useFormContext } from 'react-hook-form';
 
-import NewEnderecoForm from '../NewEnderecoForm';
-
-export default function Endereco({
-  createPayment,
-}: {
-  createPayment: (data: any) => void;
-}) {
-  const { handleSubmit } = useFormContext();
-
-  function handleCreatePayment(data: any) {
-    createPayment(data);
-  }
+export default function Endereco() {
+  const { register } = useFormContext();
 
   return (
     <EnderecoContainer>
@@ -26,9 +28,46 @@ export default function Endereco({
           </div>
         </TitleEndereco>
       </div>
-      <FormEndereco onSubmit={handleSubmit(handleCreatePayment)}>
-        <NewEnderecoForm />
-        <button type="submit">Enviar</button>
+      <FormEndereco>
+        <>
+          <CepInput
+            {...register('cep', { required: true, valueAsNumber: true })}
+            id="cep"
+            placeholder="CEP"
+            type="number"
+          />
+          <RuaInput
+            {...register('rua', { required: true })}
+            id="rua"
+            placeholder="Rua"
+          />
+          <NumeroInput
+            {...register('numero', { required: true, valueAsNumber: true })}
+            id="numero"
+            placeholder="Numero"
+            type="number"
+          />
+          <ComplementoInput
+            {...register('complemento', { required: true })}
+            id="complemento"
+            placeholder="Complemento"
+          />
+          <BairroInput
+            {...register('bairro', { required: true })}
+            id="bairro"
+            placeholder="Bairro"
+          />
+          <CidadeInput
+            {...register('cidade', { required: true })}
+            id="cidade"
+            placeholder="Cidade"
+          />
+          <UfInput
+            {...register('uf', { required: true })}
+            id="uf"
+            placeholder="UF"
+          />
+        </>
       </FormEndereco>
     </EnderecoContainer>
   );
