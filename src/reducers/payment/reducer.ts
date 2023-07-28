@@ -2,7 +2,7 @@ import { PaymentsType } from '../../@types/payments';
 import { ActionTypes } from './actions';
 
 interface PaymentReducer {
-  payment: PaymentsType[];
+  payment: PaymentsType;
 }
 interface ActionCoffesReduce {
   type: string;
@@ -16,10 +16,13 @@ export function PaymentReducer(
 ) {
   switch (action.type) {
     case ActionTypes.CREATE_NET_PAYMENT: {
-      return { ...state, state: action.playload.payment };
+      console.log(state);
+      return {
+        ...state,
+        payment: action.playload.payment,
+      };
     }
-    default: {
+    default:
       return state;
-    }
   }
 }

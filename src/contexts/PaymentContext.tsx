@@ -16,13 +16,14 @@ export const PaymentContext = createContext({} as PaymentContextType);
 export function PaymentContextProvider({ children }: PaymentContextProps) {
   const [paymentState, dispatch] = useReducer(
     PaymentReducer,
-    { payment: [] },
+    { payment: {} },
     (initialState) => {
       return initialState;
     },
   );
 
-  function addNewPaymentContext(payment: PaymentsType) {
+  function addNewPaymentContext(payment: PaymentsType[]) {
+    console.log(payment);
     dispatch(addNewPayment(payment));
   }
 

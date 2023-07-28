@@ -31,13 +31,13 @@ export default function Checkout() {
   const newEnderecoForm = useForm<NewEnderecoFormData>({
     resolver: zodResolver(newEnderecoFormSchema),
   });
+  const { payment, addNewPaymentContext } = useContext(PaymentContext);
 
   const onSubmit: SubmitHandler<DeepPartial<CheckoutFormData>> = (data) => {
     data.methodPayment = paymentMethod;
     addNewPaymentContext(data);
+    // window.location.href = '/obrigado';
   };
-
-  const { payment, addNewPaymentContext } = useContext(PaymentContext);
 
   return (
     <FormProvider {...newEnderecoForm}>
