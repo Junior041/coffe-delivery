@@ -11,10 +11,10 @@ import imgMap from '../../assets/mapPayment.svg';
 import imgTime from '../../assets/timePayment.svg';
 import imgMoney from '../../assets/moneyPayment.svg';
 import { PaymentsType } from '../../@types/payments';
+import imgEntraga from '../../assets/entrega.svg' 
 
 export default function Obrigado() {
-  const { payment } = useContext(PaymentContext);
-  console.log(payment);
+  const { payment }: PaymentsType = useContext(PaymentContext);
 
   return (
     <ObrigadoContainer>
@@ -49,8 +49,10 @@ export default function Obrigado() {
           <DivDado>
             <img src={imgMoney} alt="" />
             <div>
-              <span></span>
-              <span></span>
+              <span>Pagamento na entraga</span>
+              <span>
+                <b>{payment?.methodPayment}</b>
+              </span>
             </div>
           </DivDado>
           <DivDado>
@@ -61,6 +63,7 @@ export default function Obrigado() {
             </div>
           </DivDado>
         </DadosPagamento>
+        <img src={imgEntraga} alt="" />
       </ConteudoObrigado>
     </ObrigadoContainer>
   );
